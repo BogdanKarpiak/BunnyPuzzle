@@ -3,7 +3,7 @@
 })()
 
 function loadImages(sources, callback) {
-    var assetDir = 'img/';
+    var assetDir = '../img/';
     var images = {};
     var loadedImages = 0;
     var numImages = 0;
