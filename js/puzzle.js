@@ -1,6 +1,165 @@
-//
-//$( document ).ready(
-//    function() {
+
+$( document ).ready(
+    function() {
+
+            function voronoiCoordinates(){
+                var objectOfCoords = {};
+                var canvas = document.getElementById("voronoiCanvas");
+                var voronoi = new Voronoi();
+                var bbox = {xl:0,xr:800,yt:0,yb:800};
+                var sites = [{x:50, y:250}, {x:250, y:210}, {x:600, y:230},{x:650, y:240},
+                    {x:60, y:300}, {x:260, y:320}, {x:590, y:310},{x:620, y:290},
+                    {x:5, y:500}, {x:254, y:520}, {x:590, y:490},{x:620, y:510}];
+                var diagram = voronoi.compute(sites, bbox);
+
+                //diagram.vertices
+
+                function render() {
+                    var ctx = canvas.getContext('2d');
+                    // background
+                    ctx.globalAlpha = 1;
+                    ctx.beginPath();
+                    ctx.rect(0,0, canvas.width, canvas.height);
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+                    ctx.strokeStyle = '#888';
+                    ctx.stroke();
+                    // voronoi
+                    if (!diagram) {return;}
+                    // edges
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#000';
+                    var edges = diagram.edges,
+                        iEdge = edges.length,
+                        edge, v;
+                    while (iEdge--) {
+                        edge = edges[iEdge];
+                        v = edge.va;
+                        ctx.moveTo(v.x,v.y);
+                        v = edge.vb;
+                        ctx.lineTo(v.x,v.y);
+                    }
+                    ctx.stroke();
+                    // edges
+                    ctx.beginPath();
+                    ctx.fillStyle = 'red';
+                    var vertices = diagram.vertices,
+                        iVertex = vertices.length;
+                    while (iVertex--) {
+                        v = vertices[iVertex];
+                        ctx.rect(v.x-1,v.y-1,3,3);
+                    }
+                    ctx.fill();
+                    // sites
+                    ctx.beginPath();
+                    ctx.fillStyle = '#44f';
+                    var iSite = sites.length;
+                    while (iSite--) {
+                        v = sites[iSite];
+                        ctx.rect(v.x-2/3,v.y-2/3,2,2);
+                    }
+                    ctx.fill();
+                };
+
+                function getObjectOfCellsCoords(){
+
+                    $.each(diagram.cells,function(index,elem){
+                        var cell = $(elem)['0'].halfedges
+                        var i,lenght = cell.length;
+                        var Array = [];
+
+                        function pushCoordinates(Array,x1,y1){
+                            Array.push(x1);
+                            Array.push(y1);
+                        }
+
+                        for(i = 0;i<lenght-1;i++){
+
+                            var x1 = Math.floor(cell[''+i]['edge']['va']['x']);
+                            var y1 = Math.floor(cell[''+i]['edge']['va']['y']);
+                            var x2 = Math.floor(cell[''+i]['edge']['vb']['x']);
+                            var y2 = Math.floor(cell[''+i]['edge']['vb']['y']);
+
+                            var x3 = Math.floor(cell[''+(i+1)]['edge']['va']['x']);
+                            var y3 = Math.floor(cell[''+(i+1)]['edge']['va']['y']);
+                            var x4 = Math.floor(cell[''+(i+1)]['edge']['vb']['x']);
+                            var y4 = Math.floor(cell[''+(i+1)]['edge']['vb']['y']);
+
+                            if (x1==x3 && y1==y3){
+                                pushCoordinates(Array,x2,y2)
+                            } else {
+                                if(x1==x4 && y1==y4){
+                                    pushCoordinates(Array,x2,y2);
+                                } else{
+                                    if (x2==x3 && y2==y3){
+                                        pushCoordinates(Array,x1,y1)
+
+                                    } else{
+                                        pushCoordinates(Array,x1,y1)
+
+                                    }
+                                }
+                            }
+                        }
+                        var x1 = Math.floor(cell['0']['edge']['va']['x']);
+                        var y1 = Math.floor(cell['0']['edge']['va']['y']);
+                        var x2 = Math.floor(cell['0']['edge']['vb']['x']);
+                        var y2 = Math.floor(cell['0']['edge']['vb']['y']);
+
+                        var x3 = Math.floor(cell[''+i]['edge']['va']['x']);
+                        var y3 = Math.floor(cell[''+i]['edge']['va']['y']);
+                        var x4 = Math.floor(cell[''+i]['edge']['vb']['x']);
+                        var y4 = Math.floor(cell[''+i]['edge']['vb']['y']);
+
+                        if (x1==x3 && y1==y3){
+                            pushCoordinates(Array,x4,y4)
+                        } else {
+                            if(x1==x4 && y1==y4){
+                                pushCoordinates(Array,x3,y3)
+                            } else{
+                                if (x2==x3 && y2==y3){
+                                    pushCoordinates(Array,x4,y4)
+                                } else{
+                                    pushCoordinates(Array,x3,y3)
+                                }
+                            }
+                        }
+
+                        objectOfCoords['part'+(index+1)] = Array;
+                    })
+                    return objectOfCoords;
+                }
+                render();
+                var variable = getObjectOfCellsCoords();
+                return variable
+            }
+
+        var imageWidth;
+        var imageHeight;
+
+        var Coords =
+
+        voronoiCoordinates();
+
+//            {
+//            part1: [0, 0, 200, 0, 200, 200, 0, 200],
+//            part2: [200, 0, 400, 0, 400, 200, 200, 200],
+//            part3: [400, 0, 600, 0, 600, 200, 400, 200],
+//            part4: [600, 0, 800, 0, 800, 200, 600, 200],
+//            part5: [0, 200, 200, 200, 200, 400, 0, 400],
+//            part6: [200, 200, 400, 200, 400, 400, 200, 400],
+//            part7: [400, 200, 600, 200, 600, 400, 400, 400],
+//            part8: [600, 200, 800, 200, 800, 400, 600, 400],
+//            part9: [0, 400, 200, 400, 200, 800, 0, 800],
+//            part10: [200, 400, 400, 400, 400, 800, 200, 800],
+//            part11: [400, 400, 600, 400, 600, 800, 400, 800],
+//            part12: [600, 400, 800, 400, 800, 800, 600, 800]
+//        }
+
+        var sources = {
+            background: 'sand_2048x1536.jpg',
+            white_coords: 'dolphin_big_white.png'
+        };
 
     function myfunk(){
         function loadImages(sources, callback) {
@@ -50,7 +209,6 @@
 
         function initStage(images) {
 
-
             var stage = new Kinetic.Stage({
                 container: 'container',
                 width: 1600,
@@ -91,21 +249,18 @@
                     outlines[key+'_coords'].y = yCoord;
 
                     animals[key] = {};
-                    animals[key].x = -50 + Math.random()*100;
-                    animals[key].y = yCoord + Math.random()*400;
+                    animals[key].x = -50 + Math.random()*10;
+                    animals[key].y = yCoord + Math.random()*10;
 
                     console.log(key);
 
                 }
-                console.log(outlines);
+                //console.log(outlines);
                 return {
                     out1:outlines,
                     out2:animals
                 };
             }
-
-            //
-
 
 // create draggable animals
             for(var key in animals) {
@@ -203,31 +358,10 @@
         loadImages(sources, initStage)
     }
 
-    sources = {
-        background: 'sand_2048x1536.jpg',
-        white_coords: 'dolphin_big_white.png'
-    };
 
-    var imageWidth;
-    var imageHeight;
-
-    var Coords = {
-        part1: [0, 0, 200, 0, 200, 200, 0, 200],
-        part2: [200, 0, 400, 0, 400, 200, 200, 200],
-        part3: [400, 0, 600, 0, 600, 200, 400, 200],
-        part4: [600, 0, 800, 0, 800, 200, 600, 200],
-        part5: [0, 200, 200, 200, 200, 400, 0, 400],
-        part6: [200, 200, 400, 200, 400, 400, 200, 400],
-        part7: [400, 200, 600, 200, 600, 400, 400, 400],
-        part8: [600, 200, 800, 200, 800, 400, 600, 400],
-        part9: [0, 400, 200, 400, 200, 800, 0, 800],
-       part10: [200, 400, 400, 400, 400, 800, 200, 800],
-       part11: [400, 400, 600, 400, 600, 800, 400, 800],
-       part12: [600, 400, 800, 400, 800, 800, 600, 800]
-    }
 
     function getSourses(Coords){
-
+        console.log(Coords);
         var Images = {};
         var stage2 = new Kinetic.Stage({
             container: 'container2',
@@ -285,7 +419,7 @@
        $("#container2").remove();
     }
       getSourses(Coords);
-//});
+});
 
 
 
