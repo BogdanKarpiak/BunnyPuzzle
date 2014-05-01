@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html style="margin: 0">
+<head>
+    <title></title>
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="canvas.css">
+</head>
+<body style="margin: 0">
+
+    <input type="button" id="reload" class='menuButton' value="Reload">
+    <input type="button" id="savePoints" class='menuButton' value="Save Points">
+    <input type="button" id="showPuzzle" class='menuButton' value="showPuzzle">
+
+    <div id="container"></div>
+    <div id="container2"></div>
+    <div id="container3"></div>
+    <div id="container4"></div>
+   <!-- <div id="test"></div>-->
+    <canvas id="myCanvas" width="0" height="0"></canvas>
+    <canvas id="voronoiCanvas"></canvas>
+    <canvas id="calculatePositionsLayer"></canvas>
+    <script src="../js/kinetic-v5.0.1.min.js"></script>
+    <script src="../js/rhill-voronoi-core.js"></script>
+    <script src="../js/jakesgordon-BinPacking.js"></script>
+    <script src="../js/RectanglePacker.js"></script>
+    <script src="../js/puzzle.js"></script>
+    <script src="../js/generatorOutline.js"></script>
+
+   <!-- <script src="../js/pickArea.js"></script>-->
+    <!--<input type="button" id="create" value="Create part">
+    <input type="button" id="savePuzzle" value="SavePuzzle">
+    <input type="button" id="savePart" value="SavePart">-->
+</body>
+</html>
