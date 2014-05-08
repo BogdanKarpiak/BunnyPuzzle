@@ -1,20 +1,16 @@
-html, body {
-    overflow:hidden;
+body, html {
     margin: 0;
-    background: url("../images/green.jpg");
-    background-size: contain center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    overflow:hidden;
 }
 
-main {
+#container {
     margin: auto;
-    text-align: center;
-    vertical-align: middle;
 }
-
+/*#menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+}*/
 .menuButton {
     -moz-box-shadow:inset 0px 0px 0px 0px #f9eca0;
     -webkit-box-shadow:inset 0px 0px 0px 0px #f9eca0;
@@ -56,9 +52,6 @@ main {
      position:relative;
      top:1px;
  }
- .clear {
-     clear: both;
- }
-.level {
-    background: red;
+.clear {
+    clear: both;
 }
