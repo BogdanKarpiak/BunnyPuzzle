@@ -27,7 +27,7 @@ function loadImages(sources, callback) {
         images[src1] = new Image();
         images[src1].onload = function() {
             if(++loadedImages >= numImages) {
-                console.log(images);
+                //console.log(images);
                 callback(images);
 
             }
@@ -38,7 +38,9 @@ function loadImages(sources, callback) {
 
 function initStage(images) {
 
-    var img = images["background_" + environment];
+    var bg1ImgObj = images["background_" + environment];
+    var bg2ImgObj = images["background_" + environment + "2"];
+    var bg3ImgObj = images["background_" + environment + "3"];
     container.css({
         width: screenWidth,
         height: screenHeight
@@ -51,24 +53,43 @@ function initStage(images) {
     var background = new Kinetic.Layer();
     var animalLayer = new Kinetic.Layer();
 
-    var backgroundImg = new Kinetic.Image({
+    var bg1 = new Kinetic.Image({
         x: 0,
         y: 0,
         width: screenWidth,
         height: screenHeight,
-        image: img
+        image: bg1ImgObj
     });
-    background.add(backgroundImg);
+    var bg2 = new Kinetic.Image({
+        x: 0,
+        y: screenHeight - bg2ImgObj.height * screenWidth/bg2ImgObj.width,
+        width: screenWidth,
+        height: bg2ImgObj.height * screenWidth/bg2ImgObj.width,
+        image: bg2ImgObj
+    });
+    var bg3 = new Kinetic.Image({
+        x: 0,
+        y: screenHeight - bg3ImgObj.height * screenWidth/bg3ImgObj.width,
+        width: screenWidth,
+        height: bg3ImgObj.height * screenWidth/bg3ImgObj.width,
+        image: bg3ImgObj
+    });
+    animalLayer.add(bg3);
+    bg3.cache();
+    bg3.drawHitFromCache();
 
+    background.add(bg1);
+    background.add(bg2);
+    var coeffs = JSON.parse(localStorage.getItem("coeffs"));
+    var resizeCoeff = (coeffs[environment].coeff * screenHeight / 100) / images[coeffs[environment].animalKeyToDetermineCoeff].height;
     for(var key in outlines) {
         var animal = new Kinetic.Image({
-            x: outlines[key].x,
-            y: outlines[key].y,
-            width: outlines[key].size,
-            height: images[key].height*outlines[key].size/images[key].width,
+            x: outlines[key].x * screenWidth / 100,
+            y: outlines[key].y * screenHeight / 100,
+            width: images[key].width * resizeCoeff,
+            height: images[key].height * resizeCoeff,
             image: images[key],
             animalKey: key
-            //draggable:true
         });
         animalLayer.add(animal);
         animal.cache();
@@ -94,12 +115,11 @@ function initStage(images) {
             document.location.href = "animalGetTogether.html?" + animalName;
         });
     }
+    bg3.moveToTop();
     stage.add(background);
     stage.add(animalLayer);
 
-    var $navigation = $('#navigation');
-    $("ul#navigation li a").css("display", "block");
-    $navigation.css("margin-top", ($(window).height()/2 - $navigation.height()/2) + 'px');
+    menuConfig();
 }
 
 var container = $("#container");
@@ -108,14 +128,18 @@ localStorage.setItem('environment', environment);
 
 var sources =  JSON.parse(localStorage.getItem(''+environment));
 var outlines =  JSON.parse(localStorage.getItem('outline_'+environment));
-var AssembleredImage = document.location.search.slice(1);
+var imageSource = document.location.search.slice(1)
+var folder = imageSource.match(/[^/]*/);
+var fullImgName = imageSource.slice( ("" + folder).length + 1);
+var imgName = fullImgName.slice(13);
+var AssembleredImage = '' + folder + '/' + imgName;
 
-if(AssembleredImage){
-    sources["coloredImage_" + AssembleredImage] =  ''+AssembleredImage;
+if( (!!AssembleredImage) && (AssembleredImage!= "/") ){
+    sources[imageSource] =  ''+ folder + '/' + imgName;
     localStorage.setItem(''+environment, JSON.stringify(sources));
 }
 
 var screenWidth = $(window).width();
 var screenHeight = $(window).height();
-menuConfig();
+
 loadImages(sources, initStage);

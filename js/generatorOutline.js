@@ -3,9 +3,9 @@ function drawImage(imageObj,sources,property) {
 
     var width = imageObj.width;
     var height = imageObj.height;
-
-    $('#myCanvas').attr('width',width );
-    $('#myCanvas').attr('height',height );
+    var myCanvas = $('#myCanvas');
+    myCanvas.attr('width',width );
+    myCanvas.attr('height',height );
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
     var xo = 0;
@@ -72,6 +72,6 @@ function drawImage(imageObj,sources,property) {
         }
     });
 
-  $('#myCanvas').remove();
+  myCanvas.remove();
   $('#container4').remove();
 }

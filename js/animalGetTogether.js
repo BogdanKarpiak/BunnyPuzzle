@@ -9,7 +9,7 @@ $( document ).ready(
         Array.min = function( array ){
             return Math.min.apply( Math, array );
         };
-        var imageSourse = document.location.search.slice(14);
+        var imageSourse = document.location.search.slice(1);
         //console.log(imageSourse);
 
     function voronoiCoordinates(sites){
@@ -177,10 +177,10 @@ $( document ).ready(
         function isNearOutline(animal, outline) {
             var a = animal;
             var o = outline;
-            var ax = a.getX();
-            var ay = a.getY();
+            var ax = a.getX() - a.xChache;
+            var ay = Math.abs( -a.getY() + a.yChache);
 
-            var distance = (10 * screenWidth / 100);
+            var distance = (1 * screenWidth / 100);
             if(ax > o.x - distance && ax < o.x + distance && ay > o.y - distance && ay < o.y + distance) {
                 return true;
             }
@@ -308,7 +308,10 @@ $( document ).ready(
                     marginY: 0
                 };
                 var offsets = {
-                    offsetY: 50,
+                    offsetY: {
+                        top: 10 * screenHeight / 100,
+                        bottom: 1 * screenHeight / 100
+                    },
                     offsetX: 50
                 }
                 var borderWidth = 1 * screenWidth / 100;
@@ -325,10 +328,10 @@ $( document ).ready(
 
                 var params = {
                     packerWidth: xCoord - offsets.offsetX*2,
-                    packerHeight: screenHeight - offsets.offsetY* 2
+                    packerHeight: screenHeight - offsets.offsetY.top - offsets.offsetY.bottom
                 }
 
-                square = new Kinetic.Rect({
+                /*square = new Kinetic.Rect({
                     width:params.packerWidth + borderWidth,
                     height:params.packerHeight + borderWidth,
                     x: offsets.offsetX - borderWidth/2,
@@ -338,7 +341,7 @@ $( document ).ready(
                     stroke: 'black',
                     strokeWidth: borderWidth
                 })
-                layerOfPolygons.add(square);
+                layerOfPolygons.add(square);*/
 
                 var blocks = getBlocksCoords(params, boxMargin);
 
@@ -346,7 +349,7 @@ $( document ).ready(
                     var key0 = blocks[ind].blockKey;
                     animals[key0] = {};
                     animals[key0].x = (blocks[ind].fit.x - blocks[ind].topLeft.x + boxMargin.marginX/2) + offsets.offsetX;
-                    animals[key0].y = (blocks[ind].fit.y - blocks[ind].topLeft.y + boxMargin.marginY/2) + offsets.offsetY;
+                    animals[key0].y = (blocks[ind].fit.y - blocks[ind].topLeft.y + boxMargin.marginY/2) + offsets.offsetY.top;
                 }
 
                 for (key in coordsObject) {
@@ -467,7 +470,7 @@ $( document ).ready(
                             poly.inRightPlace = true;
                             if(++score >= Object.keys(polygons).length) {
                                 //$("#menuButton").remove();
-                                square.remove();
+                                //square.remove();
                                 layerOfPolygons.draw();
                                 $('body').css({
                                     background: 'url("../images/congratulations.jpg")',
@@ -495,6 +498,14 @@ $( document ).ready(
                 width: imageWidth,
                 height: imageHeight,
                 x: out.x,
+                y: out.y
+            });
+            var bg2ImgObj = new Image();
+            bg2ImgObj.src = '../images/bg/bg2';
+            var bg2 = new Kinetic.Image({
+                image: bg2ImgObj,
+                width: screenWidth,
+                x: screenHeight - bg2ImgObj.height,
                 y: out.y
             });
             images = null;
@@ -600,7 +611,6 @@ $( document ).ready(
             })();
         }
         return function(x){
-            console.log(ArrayofCoords);
             var poly = new Kinetic.Line({
                 points: ArrayofCoords,
                 fillPatternImage:dolphin,
@@ -648,15 +658,6 @@ $( document ).ready(
                 width: imageWidth,
                 height: imageHeight,
                 callback: function(img) {
-                    /*var polyBoundaryPoints = getBoundaryPoints(img);
-                    poly.cache({
-                        x : polyBoundaryPoints.topLeft.x,
-                        y : polyBoundaryPoints.topLeft.y,
-                        width : imageWidth,
-                        height : imageHeight
-                    });
-                    poly.drawHitFromCache();*/
-
                     Images['part'+x] = img.src;
                     $.extend(sources,Images);
                     layer.draw();
@@ -667,11 +668,9 @@ $( document ).ready(
                 }
             });
             poly.hide();
-            //layer.remove(poly);
         }(CreatePolygon.counter++)
     }
         stage.add(layer);
-        //$("#container2").remove();
     }
 
    function paintPolygonBoundaries(imgK) {
@@ -691,6 +690,7 @@ $( document ).ready(
 
     function resizeSites(args) {
         var sites = [];
+        console.log(args);
         for(var ind in args.sites[args.imageSourse][args.level]) {
             sites.push({
                 x: args.sites[args.imageSourse][args.level][ind].x * args.imageDim.imageWidth / args.screenDim[args.imageSourse].width,
@@ -712,22 +712,54 @@ $( document ).ready(
     var xCoord;
     var yCoord;
     var screenDim = {
-        "7.png": {
+        "dolphin/coloredImage_dolphin_small.png": {
             width: 588,
             height: 478
         },
-        "13.png": {
+        "turtle/coloredImage_turtle_small.png": {
             width: 588,
             height: 401
         },
-        "dolphin_big.png": {
+        "diver/coloredImage_diver_small.png": {
+            width: 655,
+            height: 769
+        },
+        "whale/coloredImage_whale_small.png": {
+            width: 655,
+            height: 769
+        },
+        "clown_fish/coloredImage_clown_fish_small.png": {
+            width: 655,
+            height: 769
+        },
+        "fish/coloredImage_fish_small.png": {
+            width: 655,
+            height: 769
+        },
+        "octopus/coloredImage_octopus_small.png": {
+            width: 655,
+            height: 769
+        },
+        "crab/coloredImage_crab_small.png": {
+            width: 655,
+            height: 769
+        },
+        "seahorse/coloredImage_seahorse_small.png": {
+            width: 655,
+            height: 769
+        },
+        "seashell/coloredImage_seashell_small.png": {
+            width: 675,
+            height: 789
+        },
+        "pearl/coloredImage_pearl_small.png": {
             width: 655,
             height: 769
         }
     };
 
     var sites = {
-        "7.png": {
+        "dolphin/coloredImage_dolphin_small.png": {
             easy: [
                 {
                     "x": 295,
@@ -755,58 +787,6 @@ $( document ).ready(
                     "voronoiId": 0
                 }
             ],
-            medium: [
-                {
-                    "x": 218,
-                    "y": 147,
-                    "voronoiId": 1
-                },
-                {
-                    "x": 399,
-                    "y": 315,
-                    "voronoiId": 7
-                },
-                {
-                    "x": 269,
-                    "y": 356,
-                    "voronoiId": 9
-                },
-                {
-                    "x": 365,
-                    "y": 269,
-                    "voronoiId": 5
-                },
-                {
-                    "x": 150.00713293254375,
-                    "y": 318.39394309045747,
-                    "voronoiId": 8
-                },
-                {
-                    "x": 136,
-                    "y": 109,
-                    "voronoiId": 0
-                },
-                {
-                    "x": 420,
-                    "y": 216,
-                    "voronoiId": 3
-                },
-                {
-                    "x": 273,
-                    "y": 174,
-                    "voronoiId": 2
-                },
-                {
-                    "x": 309,
-                    "y": 298,
-                    "voronoiId": 6
-                },
-                {
-                    "x": 267,
-                    "y": 221,
-                    "voronoiId": 4
-                }
-            ] ,
             hard: [
                 {
                     "x": 233,
@@ -885,7 +865,7 @@ $( document ).ready(
                 }
             ]
         },
-        "13.png": {
+        "turtle/coloredImage_turtle_small.png": {
             easy: [
                 {
                     "x": 338,
@@ -923,78 +903,6 @@ $( document ).ready(
                     "voronoiId": 3
                 }
             ] ,
-            medium: [
-                {
-                    "x": 240,
-                    "y": 176,
-                    "voronoiId": 5
-                },
-                {
-                    "x": 199,
-                    "y": 292,
-                    "voronoiId": 10
-                },
-                {
-                    "x": 401,
-                    "y": 166,
-                    "voronoiId": 4
-                },
-                {
-                    "x": 462,
-                    "y": 326,
-                    "voronoiId": 11
-                },
-                {
-                    "x": 340.15260326396674,
-                    "y": 244.24034244869836,
-                    "voronoiId": 8
-                },
-                {
-                    "x": 306,
-                    "y": 142,
-                    "voronoiId": 2
-                },
-                {
-                    "x": 351.0160492323339,
-                    "y": 99.39510910632089,
-                    "voronoiId": 1
-                },
-                {
-                    "x": 487,
-                    "y": 273,
-                    "voronoiId": 9
-                },
-                {
-                    "x": 122,
-                    "y": 217,
-                    "voronoiId": 7
-                },
-                {
-                    "x": 493,
-                    "y": 180,
-                    "voronoiId": 6
-                },
-                {
-                    "x": 488.3193635037169,
-                    "y": 152.1348796263337,
-                    "voronoiId": 3
-                },
-                {
-                    "x": 384,
-                    "y": 328,
-                    "voronoiId": 12
-                },
-                {
-                    "x": 247,
-                    "y": 351,
-                    "voronoiId": 13
-                },
-                {
-                    "x": 194,
-                    "y": 80,
-                    "voronoiId": 0
-                }
-            ],
             hard: [
                 {
                     "x": 226,
@@ -1098,7 +1006,7 @@ $( document ).ready(
                 }
             ]
         },
-        "dolphin_big.png": {
+        "diver/coloredImage_diver_small.png": {
             easy: [
                 {
                     "x": 303,
@@ -1129,58 +1037,6 @@ $( document ).ready(
                     "x": 147,
                     "y": 498,
                     "voronoiId": 4
-                }
-            ],
-            medium: [
-                {
-                    "x": 296,
-                    "y": 370,
-                    "voronoiId": 6
-                },
-                {
-                    "x": 526,
-                    "y": 108,
-                    "voronoiId": 0
-                },
-                {
-                    "x": 235,
-                    "y": 110,
-                    "voronoiId": 1
-                },
-                {
-                    "x": 175,
-                    "y": 354,
-                    "voronoiId": 5
-                },
-                {
-                    "x": 196,
-                    "y": 610,
-                    "voronoiId": 9
-                },
-                {
-                    "x": 130,
-                    "y": 425,
-                    "voronoiId": 7
-                },
-                {
-                    "x": 89,
-                    "y": 220,
-                    "voronoiId": 4
-                },
-                {
-                    "x": 123.26062147156335,
-                    "y": 515.5464031496085,
-                    "voronoiId": 8
-                },
-                {
-                    "x": 331,
-                    "y": 157,
-                    "voronoiId": 3
-                },
-                {
-                    "x": 383,
-                    "y": 141,
-                    "voronoiId": 2
                 }
             ],
             hard: [
@@ -1260,10 +1116,861 @@ $( document ).ready(
                     "voronoiId": 6
                 }
             ]
+        },
+        "whale/coloredImage_whale_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "clown_fish/coloredImage_clown_fish_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "fish/coloredImage_fish_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "octopus/coloredImage_octopus_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "crab/coloredImage_crab_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "seahorse/coloredImage_seahorse_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "seashell/coloredImage_seashell_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
+        },
+        "pearl/coloredImage_pearl_small.png": {
+            easy: [
+                {
+                    "x": 295,
+                    "y": 185,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 196,
+                    "y": 308,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 504,
+                    "y": 259,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 278,
+                    "y": 206,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 202,
+                    "y": 145,
+                    "voronoiId": 0
+                }
+            ],
+            hard: [
+                {
+                    "x": 233,
+                    "y": 163,
+                    "voronoiId": 2
+                },
+                {
+                    "x": 419,
+                    "y": 322,
+                    "voronoiId": 11
+                },
+                {
+                    "x": 439,
+                    "y": 220,
+                    "voronoiId": 5
+                },
+                {
+                    "x": 342.9085109755397,
+                    "y": 253.0335989012383,
+                    "voronoiId": 6
+                },
+                {
+                    "x": 142.23640391416848,
+                    "y": 108.93993735872209,
+                    "voronoiId": 0
+                },
+                {
+                    "x": 375.2590538095683,
+                    "y": 330.13608691934496,
+                    "voronoiId": 12
+                },
+                {
+                    "x": 314.1735722143203,
+                    "y": 219.06134268036112,
+                    "voronoiId": 4
+                },
+                {
+                    "x": 146.5320685012266,
+                    "y": 271.7012264020741,
+                    "voronoiId": 9
+                },
+                {
+                    "x": 247,
+                    "y": 289,
+                    "voronoiId": 10
+                },
+                {
+                    "x": 453.1392880892381,
+                    "y": 369.9299785159528,
+                    "voronoiId": 14
+                },
+                {
+                    "x": 142,
+                    "y": 184,
+                    "voronoiId": 3
+                },
+                {
+                    "x": 276,
+                    "y": 335,
+                    "voronoiId": 13
+                },
+                {
+                    "x": 232,
+                    "y": 139,
+                    "voronoiId": 1
+                },
+                {
+                    "x": 383,
+                    "y": 270,
+                    "voronoiId": 8
+                },
+                {
+                    "x": 255,
+                    "y": 256,
+                    "voronoiId": 7
+                }
+            ]
         }
     };
     var dolphin = new Image();
-    dolphin.src = '../images/'+ imageSourse;
+    var folder = imageSourse.match(/[^/]*/);
+    var fullImgName = imageSourse.slice( ("" + folder).length + 1);
+    var imgName = fullImgName.slice(13);
+    dolphin.src = '../images/' + folder + '/' + imgName;
 
     dolphin.onload = function(){
         int = {};
@@ -1304,7 +2011,7 @@ $( document ).ready(
         sources['white_coords'] = '../images/coloredImage_'+imageSourse;
         $('#voronoiCanvas').remove();
         var outlineImg = new Image();
-        outlineImg.src = '../images/coloredImage_'+imageSourse;
+        outlineImg.src = '../images/'+imageSourse;
         outlineImg.width = imageWidth;
         outlineImg.height = imageHeight;
         outlineImg.onload = function(){

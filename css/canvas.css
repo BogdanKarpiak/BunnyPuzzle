@@ -1,13 +1,6 @@
-#savePuzzle{
-
-}
-#savePart{
-
-}
-
 html, body {
     margin: 0;
-    background: url("../images/green.jpg");
+    background: url("../images/backgrounds/green.jpg");
     background-size: contain center;
     -webkit-user-select: none;
     -moz-user-select: none;
