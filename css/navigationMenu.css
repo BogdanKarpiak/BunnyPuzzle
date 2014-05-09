@@ -62,3 +62,14 @@ body, html {
     margin: auto;
     display: none;
 }*/
+#imgageText{
+    display: none;
+    position: absolute;
+    left: 5%;
+    top: 35%;
+}
+.flowers{
+    position: absolute;
+    display: none;
+    z-index: 9999;
+}
