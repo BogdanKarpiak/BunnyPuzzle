@@ -68,8 +68,13 @@ body, html {
     bottom: 0;
     left: 0;
     display: none;
+<<<<<<< HEAD
     transform: rotate(20deg);
     -moz-transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
     z-index: 3;
 }
+=======
+    z-index: 50;
+}
+>>>>>>> ab2f2b77ee50f6a9c8736aad4755259603e8966f
