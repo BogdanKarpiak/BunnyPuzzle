@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d504438-4688-4bbc-b092-b08d1b89cd8d" name="Default" comment="">
-      <change type="DELETED" beforePath="E:\workspace\BunnyPuzzle\css\canvas.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/animalGetTogether.html" afterPath="$PROJECT_DIR$/html/animalGetTogether.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/animalGetTogether.js" afterPath="$PROJECT_DIR$/js/animalGetTogether.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/puzzle.html" afterPath="$PROJECT_DIR$/html/puzzle.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navigationMenu.css" afterPath="$PROJECT_DIR$/css/navigationMenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/outlinesEnvironment.js" afterPath="$PROJECT_DIR$/js/outlinesEnvironment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BunnyPuzzle.iws" />
@@ -59,7 +59,7 @@
       <file leaf-file-name="animalGetTogether.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/animalGetTogether.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="10" selection-start="483" selection-end="483" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="34544">
+            <state line="481" column="58" selection-start="19380" selection-end="19380" vertical-scroll-proportion="-11.923077" vertical-offset="7867" max-vertical-offset="34731">
               <folding />
             </state>
           </provider>
@@ -77,7 +77,16 @@
       <file leaf-file-name="outlinesEnvironment.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="21" selection-start="4033" selection-end="4046" vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="2550">
+            <state line="116" column="0" selection-start="3847" selection-end="3847" vertical-scroll-proportion="-17.0" vertical-offset="1530" max-vertical-offset="2635">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seaEnvironment.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="629">
               <folding />
             </state>
           </provider>
@@ -86,16 +95,25 @@
       <file leaf-file-name="animalGetTogether.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="26" selection-start="89" selection-end="89" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="629">
+            <state line="27" column="17" selection-start="1003" selection-end="1019" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="884">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="puzzle.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="navigationMenu.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="11" selection-start="815" selection-end="815" vertical-scroll-proportion="0.7599487" vertical-offset="513" max-vertical-offset="1309">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="puzzle.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/puzzle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="47" selection-start="115" selection-end="115" vertical-scroll-proportion="0.08457711" vertical-offset="0" max-vertical-offset="804">
+            <state line="4" column="47" selection-start="115" selection-end="115" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -121,11 +139,12 @@
       <list>
         <option value="$PROJECT_DIR$/html/page1.html" />
         <option value="$PROJECT_DIR$/js/page1.js" />
-        <option value="$PROJECT_DIR$/js/outlinesEnvironment.js" />
-        <option value="$PROJECT_DIR$/js/animalGetTogether.js" />
         <option value="$PROJECT_DIR$/css/canvas.css" />
-        <option value="$PROJECT_DIR$/html/animalGetTogether.html" />
         <option value="$PROJECT_DIR$/html/puzzle.html" />
+        <option value="$PROJECT_DIR$/js/outlinesEnvironment.js" />
+        <option value="$PROJECT_DIR$/html/animalGetTogether.html" />
+        <option value="$PROJECT_DIR$/js/animalGetTogether.js" />
+        <option value="$PROJECT_DIR$/css/navigationMenu.css" />
       </list>
     </option>
   </component>
@@ -205,38 +224,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BunnyPuzzle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BunnyPuzzle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BunnyPuzzle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BunnyPuzzle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="html" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -294,10 +281,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20440637" sideWeight="0.67016315" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20440637" sideWeight="0.6705608" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -337,13 +324,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/startPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="55" selection-start="92" selection-end="143" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="510">
@@ -365,13 +345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/page1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="46" selection-start="6507" selection-end="6507" vertical-scroll-proportion="-24.384615" vertical-offset="2681" max-vertical-offset="3485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/page3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="807">
@@ -379,23 +352,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
+    <entry file="file://$PROJECT_DIR$/js/page1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="807">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/animalGetTogether.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="10" selection-start="483" selection-end="483" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="34544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/page1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="49" selection-end="49" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="442">
+        <state line="195" column="46" selection-start="6507" selection-end="6507" vertical-scroll-proportion="-24.384615" vertical-offset="2681" max-vertical-offset="3485">
           <folding />
         </state>
       </provider>
@@ -409,21 +368,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="21" selection-start="4033" selection-end="4046" vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="2550">
+        <state line="116" column="0" selection-start="3847" selection-end="3847" vertical-scroll-proportion="-17.0" vertical-offset="1530" max-vertical-offset="2635">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
+    <entry file="file://$PROJECT_DIR$/html/page1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="26" selection-start="89" selection-end="89" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="629">
+        <state line="3" column="19" selection-start="49" selection-end="49" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="442">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/puzzle.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="47" selection-start="115" selection-end="115" vertical-scroll-proportion="0.08457711" vertical-offset="0" max-vertical-offset="804">
+        <state line="4" column="47" selection-start="115" selection-end="115" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="807">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="17" selection-start="1003" selection-end="1019" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/animalGetTogether.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="481" column="58" selection-start="19380" selection-end="19380" vertical-scroll-proportion="-11.923077" vertical-offset="7867" max-vertical-offset="34731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="11" selection-start="815" selection-end="815" vertical-scroll-proportion="0.7599487" vertical-offset="513" max-vertical-offset="1309">
           <folding />
         </state>
       </provider>
