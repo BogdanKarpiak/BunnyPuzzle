@@ -30,19 +30,6 @@ menuConfig = function() {
             function initImagesBehavior() {
                 menu.$menuPanel = $("#menuPanel");
                 menu.buttons = $("#buttons");
-                /*menu.$mainMenu = $("#mainMenu");
-                menu.backButton = $("#back");
-                menu.reloadButton = $("#reload");
-                menu.messageWindow = $("#messageWindow");
-                menu.okButton = $("#okButton");
-                menu.cancelButton = $("#cancelButton");*/
-
-                /*menu.$mainMenu = $(images["mainMenu"]);
-                menu.backButton = $(images["backButton"]);
-                menu.reloadButton = $(images["reloadButton"]);
-                menu.messageWindow = $(images["messageWindow"]);
-                menu.okButton = $(images["okButton"]);
-                menu.cancelButton = $(images["cancelButton"]);*/
 
                 var windowWidth = 50 * screenWidth / 100;
                 var windowHeight = menu.messageWindow.height() * windowWidth/menu.messageWindow.width();
