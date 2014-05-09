@@ -9,9 +9,10 @@ body, html {
 
 #menuButton {
     position: absolute;
-    z-index: 999999;
+    z-index: 100;
     opacity: 1;
     display: none;
+    cursor: pointer;
 }
 
 #menuPanel {
@@ -20,13 +21,14 @@ body, html {
     top: 0;
     left: 0;
     opacity: 0.7;
-    z-index: 999;
+    z-index: 90;
 }
 
 .navButton {
     display:none;
-    z-index: 10;
+    z-index: 95;
     opacity: 1;
+    cursor: pointer;
 }
 
 #buttons a {
@@ -36,7 +38,7 @@ body, html {
 
 #buttons {
     position: absolute;
-    z-index: 1500;
+    z-index: 92;
 }
 
 .clear {
@@ -44,13 +46,13 @@ body, html {
 }
 
 #messageWindow {
-    z-index: 999;
+    z-index: 200;
     position: absolute;
     display: none;
 }
 
 .windowButton {
-    z-index: 9999;
+    z-index: 210;
     position: absolute;
     display: none;
 }
