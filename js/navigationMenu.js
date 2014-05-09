@@ -13,6 +13,15 @@ menuConfig = function() {
             this.buttons = $("#buttons");
             this.backButton = $("#back");
             this.reloadButton = $("#reload");
+            this.messageWindow = $("#messageWindow");
+            this.okButton = $("#okButton");
+            this.cancelButton = $("#cancelButton");
+            var windowWidth = 50 * screenWidth / 100;
+            var windowHeight = menu.messageWindow.height() * windowWidth/menu.messageWindow.width();
+            var messageWindowPosition = {
+                top: screenHeight/2 - menu.messageWindow.height()/2,
+                left: screenWidth/2 - windowWidth/2
+            };
 
             this.$mainMenu.show();
             this.$mainMenu.css({
@@ -33,6 +42,24 @@ menuConfig = function() {
                 marginLeft: - panelWidth + "px",
                 marginTop: - screenHeight + (panelWidth/2 - menuSize/2) + menuSize * 1.4 + "px"
             });
+            menu.messageWindow.css({
+                top: messageWindowPosition.top,
+                left: messageWindowPosition.left,
+                width: windowWidth
+            });
+            menu.okButton.css({
+                position: "absolute",
+                top: messageWindowPosition.top + 50 * windowHeight / 100 + "px",
+                left: messageWindowPosition.left + 15 * windowWidth / 100 + "px",
+                width: 30 * windowWidth / 100,
+                marginRight: 10 * windowWidth / 100 + "px"
+            });
+            menu.cancelButton.css({
+                position: "absolute",
+                top: messageWindowPosition.top + 50 * windowHeight / 100 + "px",
+                left: messageWindowPosition.left + 55 * windowWidth / 100 + "px",
+                width: 30 * windowWidth / 100 + "px"
+            });
             //////////////////////////////////////////////////////////////////////
             menu.$mainMenu.on(isMobile ? "touchend" : "click", function() {
                 if(isShownMenu) {
@@ -48,74 +75,25 @@ menuConfig = function() {
                     document.location.href = "environmentChoose.html";
                 }
             });
+            menu.okButton.on(isMobile ? "touchend" : "click", function() {
+                document.location.href = document.location.href;
+            });
+            menu.cancelButton.on(isMobile ? "touchend" : "click", function() {
+                menu.messageWindow.hide();
+                menu.okButton.hide();
+                menu.cancelButton.hide();
+            });
             menu.reloadButton.on(isMobile ? "touchend" : "click", function() {
-                var messageWindow = $("#messageWindow");
-                var windowButtonsContainer = $("#windowButtonsContainer");
-                var okButton = $("#okButton");
-                var cancelButton = $("#cancelButton");
-                var windowWidth = 50 * screenWidth / 100;
-                var windowHeight = messageWindow.height() * windowWidth/messageWindow.width();
-                messageWindow.show();
-                messageWindow.css({
-                    top: screenHeight/2 - messageWindow.height()/2,
-                    left: screenWidth/2 - windowWidth/2,
-                    width: windowWidth
-                });
-                /*windowButtonsContainer.css({
-                    width: 70 * windowWidth / 100,
-                    height: 30 * windowHeight / 100,
-                    marginTop: 10 * windowHeight / 100 + "px"
-                });*/
 
-                okButton.css({
-                    position: "absolute",
-                    top: messageWindow.position().top + 50 * windowHeight / 100 + "px",
-                    left: messageWindow.position().left + 15 * windowWidth / 100 + "px",
-                    width: 30 * windowWidth / 100,
-                    //height: 30 * windowHeight / 100,
-                    marginRight: 10 * windowWidth / 100 + "px"
-                }).click(function() {
-                        document.location.href = document.location.href;
-                    });
-                cancelButton.css({
-                    position: "absolute",
-                    top: messageWindow.position().top + 50 * windowHeight / 100 + "px",
-                    left: messageWindow.position().left + 55 * windowWidth / 100 + "px",
-                    width: 30 * windowWidth / 100 + "px",
-                    //height: 30 * windowHeight / 100
-                }).click(function() {
-                        messageWindow.hide();
-                        okButton.hide();
-                        cancelButton.hide();
-                    });
-                /*var messageWindow = $("<div></div>").css({
-                    width: windowWidth,
-                    height: windowHeight,
-                    position: "absolute",
-                    top: screenHeight/2 - windowHeight/2,
-                    left: screenWidth/2 - windowWidth/2,
-                    fontSize: 15 * windowHeight / 100 + "px"
-                }).addClass("messageWindow").html("Are you sure? All completed puzzles will be lost...");
-                var windowButtonsContainer = $("<div>").css({
-                    width: 70 * windowWidth / 100,
-                    height: 30 * windowHeight / 100,
-                    marginTop: 10 * windowHeight / 100 + "px"
-                }).addClass("windowButtonsContainer").appendTo(messageWindow);
                 $("<div>").css({
-                    width: 30 * windowWidth / 100,
-                    height: 30 * windowHeight / 100,
-                    fontSize: 10 * windowHeight / 100 + "px",
-                    lineHeight: 30 * windowHeight / 100 + "px",
-                    marginRight: 8 * windowWidth / 100 + "px"
-                }).addClass("okButton").addClass("windowButton").html("YES").appendTo(windowButtonsContainer);
-                $("<div>").css({
-                    width: 30 * windowWidth / 100,
-                    height: 30 * windowHeight / 100,
-                    fontSize: 10 * windowHeight / 100 + "px",
-                    lineHeight: 30 * windowHeight / 100 + "px"
-                }).addClass("cancelButton").addClass("windowButton").html("NO").appendTo(messageWindow).appendTo(windowButtonsContainer);
-                messageWindow.appendTo(document.body);*/
-                //document.location.href = document.location.href;
+                    position: "absolute",
+                    width: screenWidth,
+                    height: screenHeight,
+                    opacity: 0
+                }).appendTo(document.body).moveToTop();
+                menu.messageWindow.moveToTop().show();
+                menu.okButton.moveToTop().show();
+                menu.cancelButton.moveToTop().show();
             });
 
             $(document).on(isMobile ? "touchend" : "click", function(event) {
