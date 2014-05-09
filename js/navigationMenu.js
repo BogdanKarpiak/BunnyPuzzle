@@ -125,7 +125,7 @@ menuConfig = function() {
                 $(document).on(isMobile ? "touchend" : "click", function(event) {
                     var target = $(event.target);
                     event.stopPropagation();
-                    if(! (target.is('#menuButton') || target.is('#menuPanel') || target.is('#buttons') ||
+                    if(isShownMenu && !(target.is('#menuButton') || target.is('#menuPanel') || target.is('#buttons') ||
                         target.is('.navButton')) ) {
                         menu.hide();
                     }

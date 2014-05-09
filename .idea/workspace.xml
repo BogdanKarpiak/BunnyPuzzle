@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53608afe-0291-4edd-bd42-2e583c0ffecc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/Thumbs.db" afterPath="$PROJECT_DIR$/images/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/animalGetTogether.html" afterPath="$PROJECT_DIR$/html/animalGetTogether.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navigationMenu.css" afterPath="$PROJECT_DIR$/css/navigationMenu.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/navigationMenu.js" afterPath="$PROJECT_DIR$/js/navigationMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/seaEnvironment.html" afterPath="$PROJECT_DIR$/html/seaEnvironment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BunnyFinal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,13 +43,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="startPage.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/startPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="148" column="37" selection-start="5732" selection-end="5760" vertical-scroll-proportion="-34.0" vertical-offset="1632" max-vertical-offset="2720">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="outlinesEnvironment.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="502" selection-end="1018" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="2635">
-              <folding>
-                <marker date="1399644734218" expanded="true" signature="3896:3935" placeholder="{...}" />
-              </folding>
+            <state line="4" column="35" selection-start="195" selection-end="198" vertical-scroll-proportion="69.84615" vertical-offset="1884" max-vertical-offset="2635">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,16 +64,16 @@
       <file leaf-file-name="animalGetTogether.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/animalGetTogether.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="507" column="47" selection-start="20628" selection-end="20628" vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="34731">
+            <state line="677" column="50" selection-start="26612" selection-end="26639" vertical-scroll-proportion="-102.65385" vertical-offset="8840" max-vertical-offset="34731">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigationMenu.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="navigationMenu.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/navigationMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="27" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3094">
+            <state line="127" column="39" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.49008498" vertical-offset="1813" max-vertical-offset="3094">
               <folding />
             </state>
           </provider>
@@ -95,10 +97,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animalGetTogether.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="animalGetTogether.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="28" selection-start="986" selection-end="986" vertical-scroll-proportion="0.56348073" vertical-offset="81" max-vertical-offset="935">
+            <state line="32" column="57" selection-start="1165" selection-end="1165" vertical-scroll-proportion="-18.461538" vertical-offset="64" max-vertical-offset="935">
               <folding />
             </state>
           </provider>
@@ -135,9 +137,9 @@
         <option value="$PROJECT_DIR$/js/animalGetTogether.js" />
         <option value="$PROJECT_DIR$/html/test.html" />
         <option value="$PROJECT_DIR$/css/navigationMenu.css" />
-        <option value="$PROJECT_DIR$/js/navigationMenu.js" />
         <option value="$PROJECT_DIR$/html/seaEnvironment.html" />
         <option value="$PROJECT_DIR$/html/animalGetTogether.html" />
+        <option value="$PROJECT_DIR$/js/navigationMenu.js" />
       </list>
     </option>
   </component>
@@ -397,9 +399,7 @@
     <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="29" selection-start="2801" selection-end="2809" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2142">
-          <folding>
-            <marker date="1399644734218" expanded="true" signature="3896:3935" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -469,9 +469,7 @@
     <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="29" selection-start="2801" selection-end="2809" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2142">
-          <folding>
-            <marker date="1399644734218" expanded="true" signature="3896:3935" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -611,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/startPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="26" selection-start="1386" selection-end="1388" vertical-scroll-proportion="0.32239658" vertical-offset="301" max-vertical-offset="2720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/beachEnvironment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="6" selection-start="328" selection-end="328" vertical-scroll-proportion="0.275" vertical-offset="0" max-vertical-offset="680">
@@ -629,15 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="45" selection-start="312" selection-end="312" vertical-scroll-proportion="0.30123797" vertical-offset="53" max-vertical-offset="1071">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="502" selection-end="1018" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="2635">
-          <folding>
-            <marker date="1399644734218" expanded="true" signature="3896:3935" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,20 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/animalGetTogether.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="507" column="47" selection-start="20628" selection-end="20628" vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="34731">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/navigationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="27" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3094">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="28" selection-start="370" selection-end="709" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="578">
@@ -685,7 +653,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="986" selection-end="986" vertical-scroll-proportion="0.56348073" vertical-offset="81" max-vertical-offset="935">
+        <state line="32" column="57" selection-start="1165" selection-end="1165" vertical-scroll-proportion="-18.461538" vertical-offset="64" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/outlinesEnvironment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="35" selection-start="195" selection-end="198" vertical-scroll-proportion="69.84615" vertical-offset="1884" max-vertical-offset="2635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/startPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="37" selection-start="5732" selection-end="5760" vertical-scroll-proportion="-34.0" vertical-offset="1632" max-vertical-offset="2720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/animalGetTogether.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="677" column="50" selection-start="26612" selection-end="26639" vertical-scroll-proportion="-102.65385" vertical-offset="8840" max-vertical-offset="34731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/navigationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="39" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.49008498" vertical-offset="1813" max-vertical-offset="3094">
           <folding />
         </state>
       </provider>
