@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d504438-4688-4bbc-b092-b08d1b89cd8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/animalGetTogether.html" afterPath="$PROJECT_DIR$/html/animalGetTogether.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/animalGetTogether.js" afterPath="$PROJECT_DIR$/js/animalGetTogether.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navigationMenu.css" afterPath="$PROJECT_DIR$/css/navigationMenu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/outlinesEnvironment.js" afterPath="$PROJECT_DIR$/js/outlinesEnvironment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BunnyPuzzle.iws" />
@@ -86,7 +82,7 @@
       <file leaf-file-name="seaEnvironment.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="629">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
@@ -104,7 +100,7 @@
       <file leaf-file-name="navigationMenu.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="11" selection-start="815" selection-end="815" vertical-scroll-proportion="0.7599487" vertical-offset="513" max-vertical-offset="1309">
+            <state line="66" column="11" selection-start="834" selection-end="834" vertical-scroll-proportion="0.7599487" vertical-offset="530" max-vertical-offset="1343">
               <folding />
             </state>
           </provider>
@@ -410,7 +406,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="11" selection-start="815" selection-end="815" vertical-scroll-proportion="0.7599487" vertical-offset="513" max-vertical-offset="1309">
+        <state line="66" column="11" selection-start="834" selection-end="834" vertical-scroll-proportion="0.7599487" vertical-offset="530" max-vertical-offset="1343">
           <folding />
         </state>
       </provider>
