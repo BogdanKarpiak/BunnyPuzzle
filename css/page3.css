@@ -1,0 +1,24 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background : url("../images/green.png");
+}
+
+#chooseScreen{
+    width: 400px;
+    height: 70px;
+    margin: auto;
+    font-size: 40px;
+    text-align: center;
+    line-height: 70px;
+}
+#slider{
+    opacity: 0;
+    margin: auto;
+    width: 80%
+}

@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    background : url("../images/green.png");
+}
+#bunnyLogo, #startGame, #years, #eachTime,#level {
+    position: absolute;
+}
+#bunnyLogo{
+    display: none;
+}
+
+#startGame,#easy,#hard{
+    background: green;
+    border: 5px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+#years{
+    text-align: center;
+    background: red;
+}
+
+#eachTime{
+    margin: auto;
+    background: red;
+}
+#level{
+    display: none;
+}
