@@ -49,22 +49,45 @@ menuConfig = function() {
                 }
             });
             menu.reloadButton.on(isMobile ? "touchend" : "click", function() {
-                var windowWidth = 50 * screenWidth / 100;
-                var windowHeight = messageWindow.height * windowWidth/messageWindow.width;
                 var messageWindow = $("#messageWindow");
                 var windowButtonsContainer = $("#windowButtonsContainer");
                 var okButton = $("#okButton");
                 var cancelButton = $("#cancelButton");
+                var windowWidth = 50 * screenWidth / 100;
+                var windowHeight = messageWindow.height() * windowWidth/messageWindow.width();
+                messageWindow.show();
                 messageWindow.css({
-                    top: screenHeight/2 - messageWindow.height/2,
+                    top: screenHeight/2 - messageWindow.height()/2,
                     left: screenWidth/2 - windowWidth/2,
                     width: windowWidth
                 });
-                windowButtonsContainer.css({
+                /*windowButtonsContainer.css({
                     width: 70 * windowWidth / 100,
                     height: 30 * windowHeight / 100,
                     marginTop: 10 * windowHeight / 100 + "px"
-                });
+                });*/
+
+                okButton.css({
+                    position: "absolute",
+                    top: messageWindow.position().top + 50 * windowHeight / 100 + "px",
+                    left: messageWindow.position().left + 15 * windowWidth / 100 + "px",
+                    width: 30 * windowWidth / 100,
+                    //height: 30 * windowHeight / 100,
+                    marginRight: 10 * windowWidth / 100 + "px"
+                }).click(function() {
+                        document.location.href = document.location.href;
+                    });
+                cancelButton.css({
+                    position: "absolute",
+                    top: messageWindow.position().top + 50 * windowHeight / 100 + "px",
+                    left: messageWindow.position().left + 55 * windowWidth / 100 + "px",
+                    width: 30 * windowWidth / 100 + "px",
+                    //height: 30 * windowHeight / 100
+                }).click(function() {
+                        messageWindow.hide();
+                        okButton.hide();
+                        cancelButton.hide();
+                    });
                 /*var messageWindow = $("<div></div>").css({
                     width: windowWidth,
                     height: windowHeight,
