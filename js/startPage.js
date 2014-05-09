@@ -4,7 +4,7 @@
             screenHeight = $(window).height(),
             coeffs = {
                 sea: {
-                    coeff: 35,
+                    coeff: 22,
                     animalKeyToDetermineCoeff: "dolphin/coloredImage_dolphin_small.png"
                 },
                 jungles: {

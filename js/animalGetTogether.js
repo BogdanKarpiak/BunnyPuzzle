@@ -501,13 +501,13 @@ $( document ).ready(
                 y: out.y
             });
             var bg2ImgObj = new Image();
-            bg2ImgObj.src = '../images/bg/bg2';
+            /*bg2ImgObj.src = '../images/bg/bg2';
             var bg2 = new Kinetic.Image({
                 image: bg2ImgObj,
                 width: screenWidth,
                 x: screenHeight - bg2ImgObj.height,
                 y: out.y
-            });
+            });*/
             images = null;
             animalLayer.add(outline);
             layerOfPolygons.draw();

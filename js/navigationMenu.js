@@ -2,7 +2,7 @@ menuConfig = function() {
     var isMobile = !!(navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i));
     var screenWidth = $(window).width();
     var screenHeight = $(window).height();
-    var menuSize = 13 * screenWidth / 100;
+    var menuSize = 12 * screenWidth / 100;
     var panelWidth = 13 * screenWidth / 100;
     var buttonSize = 50 * panelWidth / 100;
     var isShownMenu = 0;
@@ -17,7 +17,7 @@ menuConfig = function() {
             this.$mainMenu.show();
             this.$mainMenu.css({
                 width: menuSize,
-                top: 1 * screenHeight / 100,
+                top: panelWidth/2 - menuSize/2,
                 left: panelWidth/2 - menuSize/2
             });
             this.$menuPanel.css({
@@ -31,7 +31,7 @@ menuConfig = function() {
             }).show();
             this.buttons.css({
                 marginLeft: - panelWidth + "px",
-                marginTop: - screenHeight + (screenHeight/100) + menuSize * 1.5 + "px"
+                marginTop: - screenHeight + (panelWidth/2 - menuSize/2) + menuSize * 1.4 + "px"
             });
             //////////////////////////////////////////////////////////////////////
             menu.$mainMenu.on(isMobile ? "touchend" : "click", function() {
@@ -49,7 +49,50 @@ menuConfig = function() {
                 }
             });
             menu.reloadButton.on(isMobile ? "touchend" : "click", function() {
-                document.location.href = document.location.href;
+                var windowWidth = 50 * screenWidth / 100;
+                var windowHeight = messageWindow.height * windowWidth/messageWindow.width;
+                var messageWindow = $("#messageWindow");
+                var windowButtonsContainer = $("#windowButtonsContainer");
+                var okButton = $("#okButton");
+                var cancelButton = $("#cancelButton");
+                messageWindow.css({
+                    top: screenHeight/2 - messageWindow.height/2,
+                    left: screenWidth/2 - windowWidth/2,
+                    width: windowWidth
+                });
+                windowButtonsContainer.css({
+                    width: 70 * windowWidth / 100,
+                    height: 30 * windowHeight / 100,
+                    marginTop: 10 * windowHeight / 100 + "px"
+                });
+                /*var messageWindow = $("<div></div>").css({
+                    width: windowWidth,
+                    height: windowHeight,
+                    position: "absolute",
+                    top: screenHeight/2 - windowHeight/2,
+                    left: screenWidth/2 - windowWidth/2,
+                    fontSize: 15 * windowHeight / 100 + "px"
+                }).addClass("messageWindow").html("Are you sure? All completed puzzles will be lost...");
+                var windowButtonsContainer = $("<div>").css({
+                    width: 70 * windowWidth / 100,
+                    height: 30 * windowHeight / 100,
+                    marginTop: 10 * windowHeight / 100 + "px"
+                }).addClass("windowButtonsContainer").appendTo(messageWindow);
+                $("<div>").css({
+                    width: 30 * windowWidth / 100,
+                    height: 30 * windowHeight / 100,
+                    fontSize: 10 * windowHeight / 100 + "px",
+                    lineHeight: 30 * windowHeight / 100 + "px",
+                    marginRight: 8 * windowWidth / 100 + "px"
+                }).addClass("okButton").addClass("windowButton").html("YES").appendTo(windowButtonsContainer);
+                $("<div>").css({
+                    width: 30 * windowWidth / 100,
+                    height: 30 * windowHeight / 100,
+                    fontSize: 10 * windowHeight / 100 + "px",
+                    lineHeight: 30 * windowHeight / 100 + "px"
+                }).addClass("cancelButton").addClass("windowButton").html("NO").appendTo(messageWindow).appendTo(windowButtonsContainer);
+                messageWindow.appendTo(document.body);*/
+                //document.location.href = document.location.href;
             });
 
             $(document).on(isMobile ? "touchend" : "click", function(event) {

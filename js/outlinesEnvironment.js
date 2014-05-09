@@ -62,16 +62,16 @@ function initStage(images) {
     });
     var bg2 = new Kinetic.Image({
         x: 0,
-        y: screenHeight - bg2ImgObj.height * screenWidth/bg2ImgObj.width,
+        y: screenHeight - bg2ImgObj.height * screenHeight / 1536,//bg2ImgObj.height * screenWidth/bg2ImgObj.width,
         width: screenWidth,
-        height: bg2ImgObj.height * screenWidth/bg2ImgObj.width,
+        height: bg2ImgObj.height * screenHeight / 1536,//* screenWidth/bg2ImgObj.width,
         image: bg2ImgObj
     });
     var bg3 = new Kinetic.Image({
         x: 0,
-        y: screenHeight - bg3ImgObj.height * screenWidth/bg3ImgObj.width,
+        y: screenHeight - bg3ImgObj.height * screenHeight / 1536,//bg3ImgObj.height * screenWidth/bg3ImgObj.width,
         width: screenWidth,
-        height: bg3ImgObj.height * screenWidth/bg3ImgObj.width,
+        height: bg3ImgObj.height * screenHeight / 1536, //* screenWidth/bg3ImgObj.width,
         image: bg3ImgObj
     });
     animalLayer.add(bg3);
@@ -81,13 +81,13 @@ function initStage(images) {
     background.add(bg1);
     background.add(bg2);
     var coeffs = JSON.parse(localStorage.getItem("coeffs"));
-    var resizeCoeff = (coeffs[environment].coeff * screenHeight / 100) / images[coeffs[environment].animalKeyToDetermineCoeff].height;
+    var resizeCoeff = (coeffs[environment].coeff * screenWidth / 100) / images[coeffs[environment].animalKeyToDetermineCoeff].width;
     for(var key in outlines) {
         var animal = new Kinetic.Image({
             x: outlines[key].x * screenWidth / 100,
             y: outlines[key].y * screenHeight / 100,
             width: images[key].width * resizeCoeff,
-            height: images[key].height * resizeCoeff,
+            height: images[key].height * screenHeight / 1536,// * resizeCoeff;
             image: images[key],
             animalKey: key
         });
