@@ -478,23 +478,23 @@ $( document ).ready(
                                 localStorage.getItem('anim')
                                 layerOfPolygons.draw();
                                 $imgageText.css({
-                                   display:'inline',
-                                    width: screenWidth/2.2
-                                });
-                                $('#flowersContainer').find('img').each(function(index,elem){
 
+                                    width: screenWidth/2.2
+                                })
+                                .fadeIn(500);
+                                $('#flowersContainer').find('img').each(function(index,elem){
                                     $(elem)
                                     .css({
                                             top:10+ Math.round(Math.random()*45) + '%',
                                             left:10+ Math.round(Math.random()*15) + '%'
                                     })
-                                    .fadeIn(500);
+                                    .fadeIn(1000);
                                 });
                                 $("#menuButton").remove();
                                 /*setTimeout(function(){
-                                         document.location.href = localStorage.getItem('environment') +
-                                        "Environment.html?"+imageSourse;
-                                },5000);*/
+                                 document.location.href = localStorage.getItem('environment') +
+                                 "Environment.html?"+imageSourse;
+                                 },5000);*/
                             }
                                 //disable drag and drop
                                 poly.setDraggable(false);
