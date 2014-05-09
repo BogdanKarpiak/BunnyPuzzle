@@ -61,7 +61,7 @@ $(function(){
 
     var coeffs = {
             sea: {
-                coeff: 35,
+                coeff: 22,
                 animalKeyToDetermineCoeff: "dolphin/coloredImage_dolphin_small.png"
             },
             jungles: {
@@ -178,7 +178,6 @@ $(function(){
                 y: screenHeight*0.4
             }
         };
-    //set main in the middle of the screen
 
     //setLocalStorage('jungles','outline_jungles',$.extend(backgroundSources,junglesAnimalSources),junglesOutlines);
     setLocalStorage('sea','outline_sea',$.extend(backgroundSources,seaAnimalSourses),seaOutlines);
@@ -189,10 +188,12 @@ $(function(){
         localStorage.setItem(key1, JSON.stringify(object1));
         localStorage.setItem(key2, JSON.stringify(object2));
     }
-    $("#easy,#hard").on("click", function() {
+
+    $("#easy ,#hard").on("click", function() {
         var $this = $(this)
         localStorage.setItem('level',$this.attr('points'));
         localStorage.setItem('level_word',$this.attr('level'));
+        document.location.href = "page3.html";
     })
 
 })
