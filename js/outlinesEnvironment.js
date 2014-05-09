@@ -112,7 +112,11 @@ function initStage(images) {
         });
         animal.on('click touchstart', function() {
             var animalName = this.attrs.animalKey;
+            var folder = animalName.match(/[^/]*/);
+            localStorage.setItem('anim',''+folder);
+
             document.location.href = "animalGetTogether.html?" + animalName;
+
         });
     }
     bg3.moveToTop();
@@ -130,6 +134,7 @@ var sources =  JSON.parse(localStorage.getItem(''+environment));
 var outlines =  JSON.parse(localStorage.getItem('outline_'+environment));
 var imageSource = document.location.search.slice(1)
 var folder = imageSource.match(/[^/]*/);
+
 var fullImgName = imageSource.slice( ("" + folder).length + 1);
 var imgName = fullImgName.slice(13);
 var AssembleredImage = '' + folder + '/' + imgName;

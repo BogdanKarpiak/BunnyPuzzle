@@ -14,8 +14,10 @@ $( document ).ready(
             background: 'url(' + "../images/bg/" + localStorage.getItem('environment')+'.jpg)',
             backgroundSize:'contain center center'
         })
+        var $imgageText = $('#imgageText');
+        $imgageText.attr('src',"../images/text_table/"+localStorage.getItem('anim') + '.png');
 
-    function voronoiCoordinates(sites){
+        function voronoiCoordinates(sites){
 
         var objectOfCoords = {};
         var canvas = document.getElementById("voronoiCanvas");
@@ -183,7 +185,7 @@ $( document ).ready(
             var ax = a.getX() - a.xChache;
             var ay = Math.abs( -a.getY() + a.yChache);
 
-            var distance = (1 * screenWidth / 100);
+            var distance = (1 * screenWidth / 1);
             if(ax > o.x - distance && ax < o.x + distance && ay > o.y - distance && ay < o.y + distance) {
                 return true;
             }
@@ -472,18 +474,27 @@ $( document ).ready(
 
                             poly.inRightPlace = true;
                             if(++score >= Object.keys(polygons).length) {
-                                //$("#menuButton").remove();
-                                //square.remove();
+
+                                localStorage.getItem('anim')
                                 layerOfPolygons.draw();
-                                $('body').css({
-                                    background: 'url("../images/congratulations.jpg")',
-                                    backgroundSize: $(window).width() + 'px '  + $(window).height() + 'px'
+                                $imgageText.css({
+                                   display:'inline',
+                                    width: screenWidth/2.2
+                                });
+                                $('#flowersContainer').find('img').each(function(index,elem){
+
+                                    $(elem)
+                                    .css({
+                                            top:10+ Math.round(Math.random()*45) + '%',
+                                            left:10+ Math.round(Math.random()*15) + '%'
+                                    })
+                                    .fadeIn(500);
                                 });
                                 $("#menuButton").remove();
-                                setTimeout(function(){
+                                /*setTimeout(function(){
                                          document.location.href = localStorage.getItem('environment') +
                                         "Environment.html?"+imageSourse;
-                                },3000);
+                                },5000);*/
                             }
                                 //disable drag and drop
                                 poly.setDraggable(false);
