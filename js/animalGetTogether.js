@@ -10,7 +10,10 @@ $( document ).ready(
             return Math.min.apply( Math, array );
         };
         var imageSourse = document.location.search.slice(1);
-        //console.log(imageSourse);
+        $('body').css({
+            background: 'url(' + "../images/bg/" + localStorage.getItem('environment')+'.jpg)',
+            backgroundSize:'contain center center'
+        })
 
     function voronoiCoordinates(sites){
 
