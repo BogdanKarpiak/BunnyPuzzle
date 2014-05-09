@@ -52,11 +52,11 @@ menuConfig = function() {
                 });
                 menu.buttons.find(".navButton").css({
                     width: buttonSize + "px",
-                    marginBottom: 30 * panelWidth / 100 + "px"
+                    marginBottom: 16 * menuSize / 100 + "px"
                 }).show();
                 menu.buttons.css({
                     marginLeft: - panelWidth + "px",
-                    marginTop: - screenHeight + (panelWidth/2 - menuSize/2) + menuSize * 1.4 + "px"
+                    marginTop: - screenHeight + (panelWidth/2 - menuSize/2) + menuSize * 1.1 + "px"
                 });
                 menu.messageWindow.css({
                     top: messageWindowPosition.top,
@@ -94,13 +94,17 @@ menuConfig = function() {
                 });
                 menu.okButton.on(isMobile ? "touchend" : "click", function(event) {
                     event.stopPropagation();
-                    var environment = localStorage.getItem('environment');
-                    var sources = JSON.parse(localStorage.getItem("backgroundSources"));
-                    for( var key in JSON.parse(localStorage.getItem(environment + "AnimalSources")) ) {
-                        sources[key] = key;
+                    if( $(document.body).attr("class") ) {
+                        document.location.href = document.location.href;
+                    } else {
+                        var environment = localStorage.getItem('environment');
+                        var sources = JSON.parse(localStorage.getItem("backgroundSources"));
+                        for( var key in JSON.parse(localStorage.getItem(environment + "AnimalSources")) ) {
+                            sources[key] = key;
+                        }
+                        localStorage.setItem(environment, JSON.stringify(sources));
+                        document.location.href = document.location.origin + document.location.pathname;
                     }
-                    localStorage.setItem(environment, JSON.stringify(sources));
-                    document.location.href = document.location.origin + document.location.pathname;
                     modalLayer2.remove();
                     menu.show();
                 });

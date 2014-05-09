@@ -704,15 +704,12 @@ $( document ).ready(
 
     function resizeSites(args) {
         var sites = [];
-        console.log(args);
         for(var ind in args.sites[args.imageSourse][args.level]) {
             sites.push({
                 x: args.sites[args.imageSourse][args.level][ind].x * args.imageDim.imageWidth / args.screenDim[args.imageSourse].width,
                 y: args.sites[args.imageSourse][args.level][ind].y * args.imageDim.imageHeight / args.screenDim[args.imageSourse].height,
                 voronoiId: args.sites[args.imageSourse][args.level][ind].voronoiId
             });
-            /*args.sites[args.imageSourse][args.level][ind].x *= $(window).width() / args.screenDim.width;
-            args.sites[args.imageSourse][args.level][ind].y *= $(window).height() / args.screenDim.height;*/
         };
         return sites;
     }
