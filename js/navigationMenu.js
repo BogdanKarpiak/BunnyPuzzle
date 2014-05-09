@@ -18,7 +18,6 @@ menuConfig = function() {
                 }
                 for(var src1 in imgSources) {
                     menu[src1] = $("#" + src1);
-                    console.log(menu[src1]);
                     menu[src1].on("load", function() {
                         if(++loadedImages >= numImages) {
                             callback();
@@ -34,7 +33,7 @@ menuConfig = function() {
                 var windowWidth = 50 * screenWidth / 100;
                 var windowHeight = menu.messageWindow.height() * windowWidth/menu.messageWindow.width();
                 var messageWindowPosition = {
-                    top: screenHeight/2 - menu.messageWindow.height()/2,
+                    top: screenHeight/2 - menu.messageWindow.height() * (windowWidth / menu.messageWindow.width()) / 2,
                     left: screenWidth/2 - windowWidth/2
                 };
                 var modalLayer2;
@@ -95,7 +94,13 @@ menuConfig = function() {
                 });
                 menu.okButton.on(isMobile ? "touchend" : "click", function(event) {
                     event.stopPropagation();
-                    document.location.href = document.location.href;
+                    var environment = localStorage.getItem('environment');
+                    var sources = JSON.parse(localStorage.getItem("backgroundSources"));
+                    for( var key in JSON.parse(localStorage.getItem(environment + "AnimalSources")) ) {
+                        sources[key] = key;
+                    }
+                    localStorage.setItem(environment, JSON.stringify(sources));
+                    document.location.href = document.location.origin + document.location.pathname;
                     modalLayer2.remove();
                     menu.show();
                 });

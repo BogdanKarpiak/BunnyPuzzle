@@ -143,10 +143,16 @@
             document.location.href = "selectLevel.html";
         })
 
+        localStorage.setItem("backgroundSources", JSON.stringify(backgroundSources));
         //setLocalStorage('jungles','outline_jungles',$.extend(backgroundSources,junglesAnimalSources),junglesOutlines);
         setLocalStorage('sea','outline_sea',$.extend(backgroundSources,seaAnimalSourses),seaOutlines);
         //setLocalStorage('beach','outline_beach',$.extend(backgroundSources,beachAnimalSourses),beachOutlines);
         localStorage.setItem("coeffs", JSON.stringify(coeffs));
+        localStorage.setItem("seaAnimalSources", JSON.stringify(seaAnimalSourses));
+        localStorage.setItem("junglesAnimalSources", JSON.stringify(junglesAnimalSources));
+        localStorage.setItem("beachAnimalSourses", JSON.stringify(beachAnimalSourses));
+
+
 
         function setLocalStorage (key1,key2,object1,object2){
             localStorage.setItem(key1, JSON.stringify(object1));
