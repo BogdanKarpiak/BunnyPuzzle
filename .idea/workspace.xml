@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53608afe-0291-4edd-bd42-2e583c0ffecc" name="Default" comment="" />
+    <list default="true" id="53608afe-0291-4edd-bd42-2e583c0ffecc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navigationMenu.css" afterPath="$PROJECT_DIR$/css/navigationMenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/navigationMenu.js" afterPath="$PROJECT_DIR$/js/navigationMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/seaEnvironment.html" afterPath="$PROJECT_DIR$/html/seaEnvironment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="BunnyFinal.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,7 +49,7 @@
       <file leaf-file-name="navigationMenu.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="17" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1139">
+            <state line="54" column="18" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1156">
               <folding />
             </state>
           </provider>
@@ -53,8 +58,12 @@
       <file leaf-file-name="navigationMenu.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/navigationMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="72" selection-start="3588" selection-end="3588" vertical-scroll-proportion="-0.122681886" vertical-offset="1395" max-vertical-offset="2703">
-              <folding />
+            <state line="92" column="52" selection-start="4114" selection-end="4123" vertical-scroll-proportion="0.67902994" vertical-offset="850" max-vertical-offset="2091">
+              <folding>
+                <element signature="e#2890#3048#0" expanded="false" />
+                <element signature="e#3126#3426#0" expanded="false" />
+                <element signature="e#3502#3582#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,8 +80,10 @@
       <file leaf-file-name="seaEnvironment.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="60" selection-start="244" selection-end="244" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="629">
-              <folding />
+            <state line="23" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="510">
+              <folding>
+                <element signature="tag#div#2;tag#body#0;tag#html#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,6 +103,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -119,7 +133,6 @@
       </list>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-4" />
     <option name="y" value="-4" />
@@ -223,16 +236,6 @@
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ivan\Dropbox\app\Апрель 2014\BunnyFinal(server)\html" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="C:\Users\Ivan\Dropbox\app\Апрель 2014\BunnyFinal(server)\html" />
-      <recent name="C:\Bogdan\Dropbox\Workspace\BunnyFinal\html" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
@@ -273,23 +276,6 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="53608afe-0291-4edd-bd42-2e583c0ffecc" name="Default" comment="" />
@@ -549,13 +535,6 @@
         <state line="0" column="9318" selection-start="9318" selection-end="9318" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/beachEnvironment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="34" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/junglesEnvironment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="34" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="510">
@@ -603,20 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/page1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="307" selection-end="307" vertical-scroll-proportion="0.3" vertical-offset="0" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="17" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1139">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/startPage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="16" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.3243626" vertical-offset="434" max-vertical-offset="1190">
@@ -627,20 +592,6 @@
     <entry file="file://$PROJECT_DIR$/css/OutlinesEnvirenment.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="45" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="60" selection-start="244" selection-end="244" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="60" selection-start="203" selection-end="203" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
@@ -673,10 +624,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/page1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="307" selection-end="307" vertical-scroll-proportion="0.29101285" vertical-offset="0" max-vertical-offset="701">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/seaEnvironment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="510">
+          <folding>
+            <element signature="tag#div#2;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/animalGetTogether.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="60" selection-start="203" selection-end="203" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/navigationMenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="18" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/beachEnvironment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="6" selection-start="328" selection-end="328" vertical-scroll-proportion="0.275" vertical-offset="0" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/navigationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="72" selection-start="3588" selection-end="3588" vertical-scroll-proportion="-0.122681886" vertical-offset="1395" max-vertical-offset="2703">
-          <folding />
+        <state line="92" column="52" selection-start="4114" selection-end="4123" vertical-scroll-proportion="0.67902994" vertical-offset="850" max-vertical-offset="2091">
+          <folding>
+            <element signature="e#2890#3048#0" expanded="false" />
+            <element signature="e#3126#3426#0" expanded="false" />
+            <element signature="e#3502#3582#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
