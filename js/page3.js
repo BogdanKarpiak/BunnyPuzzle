@@ -25,4 +25,10 @@ $(function(){
         }
         moving = 0;
     })
+    var isMobile = !!(navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i));
+    if(!isMobile){
+        $bxslider.on("click", function(e) {
+            document.location.href = ($(e.target).attr('screen')) + "Environment.html";
+        })
+    }
 })
