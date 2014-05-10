@@ -62,14 +62,19 @@ body, html {
     margin: auto;
     display: none;
 }*/
-#imgageText{
-    display: none;
+
+#bunnyLogo{
     position: absolute;
-    left: 5%;
-    top: 35%;
+    bottom: 0;
+    left: 0;
+    display: none;
+<<<<<<< HEAD
+    transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    z-index: 3;
 }
-.flowers{
-    position: absolute;
-    display: none;
+=======
     z-index: 50;
 }
+>>>>>>> ab2f2b77ee50f6a9c8736aad4755259603e8966f

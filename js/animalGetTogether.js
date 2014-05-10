@@ -14,8 +14,10 @@ $( document ).ready(
             background: 'url(' + "../images/bg/" + localStorage.getItem('environment')+'.jpg)',
             backgroundSize:'contain center center'
         })
-        var $imgageText = $('#imgageText');
-        $imgageText.attr('src',"../images/text_table/"+localStorage.getItem('anim') + '.png');
+        var imageText = new Image();
+        imageText.src= "../images/text_table/"+localStorage.getItem('anim') + '.png';
+        var flowers = new Image();
+        flowers.src ="../images/flower.png";
 
         function voronoiCoordinates(sites){
 
@@ -475,23 +477,66 @@ $( document ).ready(
                             poly.inRightPlace = true;
                             if(++score >= Object.keys(polygons).length) {
 
-                                localStorage.getItem('anim')
-                                layerOfPolygons.draw();
-                                $imgageText.css({
 
-                                    width: screenWidth/2.2
-                                })
-                                .fadeIn(500);
-                                $('#flowersContainer').find('img').each(function(index,elem){
-                                    $(elem)
-                                    .css({
-                                            top:10+ Math.round(Math.random()*45) + '%',
-                                            left:10+ Math.round(Math.random()*15) + '%'
-                                    })
-                                    .fadeIn(1000);
+                                    var fwidth = flowers.width,
+                                        fheight = flowers.height;
+                                        console.log(fwidth + ' ' + fheight);
+                                    localStorage.getItem('anim')
+                                    layerOfPolygons.draw();
+                                    var Flowers = [];
+                                    for(var flower = 0;flower <= 20; flower++){
+                                        var scale = (Math.random()*1+0.1).toFixed(2);
+                                        var flowerImage = new Kinetic.Image({
+                                            x: (Math.random()*400 + 100),
+                                            y:(Math.random()*200 + 200),
+                                            image:flowers,
+                                            width: fwidth*scale,
+                                            height: fheight*((fwidth + scale*fwidth)/fwidth)
+
+                                        })
+                                        //flowerImage.setZIndex(4);
+                                        layer.add(flowerImage);
+                                        Flowers[flower] = flowerImage;
+                                    }
+
+                                var textImage = new Kinetic.Image({
+                                    x:screenWidth/20,
+                                    y:screenHeight/4,
+                                    image:imageText,
+                                    width: screenWidth/2.5,
+                                    height:imageText.height*(screenWidth/(2.5*imageText.width))
+
                                 });
+
+
+                                layer.add(textImage);
+
+                                    var period1 = 5000;
+                                    var period2 = 10000
+                                    var anim = new Kinetic.Animation(function(frame) {
+                                        var scale = Math.sin(frame.time * 2 * Math.PI / period1 ) ;
+                                        for(var i = 0;i<= 20;i=i+2){
+                                            Flowers[i].scale({x:scale,y:scale});
+                                        }
+                                    }, layer);
+                                    var anim2 = new Kinetic.Animation(function(frame) {
+                                        var scale = Math.sin(frame.time * 1.5 * Math.PI / period2 ) ;
+                                        for(var i = 1;i<= 20; i = i+2){
+                                            Flowers[i].scale({x:scale,y:scale});
+                                        }
+                                    }, layer);
+
+                                    anim.start();
+                                    anim2.start();
+
+                                setTimeout(function(){
+                                    $('#bunnyLogo').css({
+                                        display:'inline',
+                                        width:""+ screenHeight/2.5
+                                    })
+                                ,1000})
                                 $("#menuButton").remove();
-                                /*setTimeout(function(){
+                               /* setTimeout(function(){
                                  document.location.href = localStorage.getItem('environment') +
                                  "Environment.html?"+imageSourse;
                                  },5000);*/
