@@ -1,4 +1,3 @@
-
 function drawImage(imageObj,sources,property) {
 
     var width = imageObj.width;

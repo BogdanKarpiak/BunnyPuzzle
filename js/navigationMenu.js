@@ -86,7 +86,7 @@ menuConfig = function() {
                     }
                 });
                 menu.backButton.on(isMobile ? "touchend" : "click", function() {
-                    if($(document.body).attr("class") == "getPuzzle") {
+                    if($(document.body).attr("class")) {
                         document.location.href = localStorage.getItem('environment') + "Environment.html";
                     } else {
                         document.location.href = "environmentChoose.html";

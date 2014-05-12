@@ -12,12 +12,13 @@ $( document ).ready(
         var imageSourse = document.location.search.slice(1);
         $('body').css({
             background: 'url(' + "../images/bg/" + localStorage.getItem('environment')+'.jpg)',
-            backgroundSize:'contain center center'
-        })
-        var imageText = new Image();
-        imageText.src= "../images/text_table/"+localStorage.getItem('anim') + '.png';
-        var flowers = new Image();
-        flowers.src ="../images/flower.png";
+            backgroundSize:'contain center center',
+            height: $(window).height()
+        });
+        /*nextButton.onload = function() {
+            nextButton.width = 5 * screenWidth / 100;
+        };
+        nextButton.src = '../images/Next.png';*/
 
         function voronoiCoordinates(sites){
 
@@ -197,6 +198,16 @@ $( document ).ready(
         }
 
         function initStage(images) {
+
+            $(images["bunnyLogo"]).css({
+                width: screenHeight/3.5 + 'px',
+                marginLeft: - 1.5 * screenHeight/2.5 + "px"
+            }).attr("id", "bunnyLogo").show().appendTo(document.body);
+            $(images["flower"]).hide().appendTo(document.body);
+            images["nextButton"].onclick = function() {
+                document.location.href = localStorage.getItem('environment') +
+                    "Environment.html?"+imageSourse;
+            };
 
             var $navigation = $('#navigation');
             $("ul#navigation li a").css("display", "block");
@@ -465,10 +476,12 @@ $( document ).ready(
                         animalLayer.moveToBottom();
                         this.moveToTop();
                     });
-
+                    var flowerImg = images["flower"];
+                    var imageText = images["imageText"];
+                    var bunnyLogo = images["bunnyLogo"];
+                    var nextButton = images["nextButton"];
                     poly.on('dragend', function() {
                         var outline = outlines[key + '_coords'];
-
                         if(!poly.inRightPlace && isNearOutline(poly, outline)) {
                             poly.setPosition({x:xCoord + poly.xChache, y:yCoord + poly.yChache});
                             animalLayer.moveToBottom();
@@ -476,45 +489,40 @@ $( document ).ready(
 
                             poly.inRightPlace = true;
                             if(++score >= Object.keys(polygons).length) {
-
-
-                                    var fwidth = flowers.width,
-                                        fheight = flowers.height;
-                                        console.log(fwidth + ' ' + fheight);
-                                    localStorage.getItem('anim')
-                                    layerOfPolygons.draw();
-                                    var Flowers = [];
-                                    for(var flower = 0;flower <= 20; flower++){
-                                        var scale = (Math.random()*1+0.1).toFixed(2);
-                                        var flowerImage = new Kinetic.Image({
-                                            x: (Math.random()*400 + 100),
-                                            y:(Math.random()*200 + 200),
-                                            image:flowers,
-                                            width: fwidth*scale,
-                                            height: fheight*((fwidth + scale*fwidth)/fwidth)
-
-                                        })
-                                        //flowerImage.setZIndex(4);
-                                        layer.add(flowerImage);
-                                        Flowers[flower] = flowerImage;
-                                    }
+                                var fwidth = flowerImg.width,
+                                    fheight = flowerImg.height;
+                                localStorage.getItem('anim');
+                                layerOfPolygons.draw();
+                                var Flowers = [];
+                                for(var flower = 0;flower <= 20; flower++){
+                                    var scale = 2*(Math.random()*1+0.1).toFixed(2);
+                                    var flowerImage = new Kinetic.Image({
+                                        x: (Math.random()*400 + 100),
+                                        y:(Math.random()*200 + 200),
+                                        image:flowerImg,
+                                        width: fwidth*scale,
+                                        height: fheight*scale//((fwidth + scale*fwidth)/fwidth)
+                                    });
+                                    //flowerImage.setZIndex(4);
+                                    layer.add(flowerImage);
+                                    Flowers[flower] = flowerImage;
+                                }
 
                                 var textImage = new Kinetic.Image({
-                                    x:screenWidth/20,
-                                    y:screenHeight/4,
-                                    image:imageText,
-                                    width: screenWidth/2.5,
+                                    x:screenWidth/6,
+                                    y:screenHeight/3,
+                                    image: imageText,
+                                    width: screenWidth/3,
                                     height:imageText.height*(screenWidth/(2.5*imageText.width))
-
                                 });
 
 
                                 layer.add(textImage);
 
                                     var period1 = 5000;
-                                    var period2 = 10000
+                                    var period2 = 10000;
                                     var anim = new Kinetic.Animation(function(frame) {
-                                        var scale = Math.sin(frame.time * 2 * Math.PI / period1 ) ;
+                                        var scale = Math.sin(frame.time * 2 * Math.PI / period1 );
                                         for(var i = 0;i<= 20;i=i+2){
                                             Flowers[i].scale({x:scale,y:scale});
                                         }
@@ -530,12 +538,23 @@ $( document ).ready(
                                     anim2.start();
 
                                 setTimeout(function(){
-                                    $('#bunnyLogo').css({
-                                        display:'inline',
-                                        width:""+ screenHeight/2.5
-                                    })
-                                ,1000})
-                                $("#menuButton").remove();
+                                    $(bunnyLogo).animate({
+                                        marginLeft: 0 + 'px'
+                                    }, 1000);
+                                },1000);
+                                setTimeout(function() {
+                                    $(nextButton).css({
+                                        width: 30 * imageWidth / 100,
+                                        position: "absolute",
+                                        top: outlines['white_coords'].y + imageHeight + 5 * screenHeight / 100,
+                                        left: outlines['white_coords'].x + imageWidth/2 - 30 * imageWidth / 100 /2
+                                    }).appendTo(document.body);
+                                }, 5000);
+                                setTimeout(function(){
+                                    document.location.href = localStorage.getItem('environment') +
+                                        "Environment.html?"+imageSourse;
+                                },20000);
+                                //$("#menuButton").remove();
                                /* setTimeout(function(){
                                  document.location.href = localStorage.getItem('environment') +
                                  "Environment.html?"+imageSourse;
@@ -717,10 +736,11 @@ $( document ).ready(
                 width: imageWidth,
                 height: imageHeight,
                 callback: function(img) {
+                    Images['part'+x] = new Image();
                     Images['part'+x] = img.src;
                     $.extend(sources,Images);
                     layer.draw();
-                    if(Object.keys(sources).length == (1 + Object.keys(Coords).length)){
+                    if(Object.keys(sources).length == (1 + Object.keys(Coords).length) + 4){
                         Images = null;
                         DrawPuzzle(stage,layer,objectOfPolygons,screenHeight,screenWidth,imageHeight,imageWidth);
                     }
@@ -759,7 +779,12 @@ $( document ).ready(
         return sites;
     }
 
-    var sources = {};
+    var sources = {
+        bunnyLogo: "../images/bunnyLogo.PNG",
+        nextButton: "../images/Next.png",
+        imageText: "../images/text_table/" + localStorage.getItem('anim') + '.png',
+        flower: "../images/flower.png"
+    };
     var objectOfPolygons = {};
     var counter = 0;
     var imageWidth;
@@ -2074,6 +2099,7 @@ $( document ).ready(
             drawImage(outlineImg,sources,'white_coords');
             getSourses(Coords,screenHeight,screenWidth,imageHeight,imageWidth);
             $('.menuButton').remove();
-        }
+        };
+
     };
 })

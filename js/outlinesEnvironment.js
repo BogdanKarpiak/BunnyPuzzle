@@ -1,4 +1,4 @@
-function pixelRatioFix(canvas) {
+/*function pixelRatioFix(canvas) {
     if (window.devicePixelRatio != 1) {
         var w = canvas.width, h = canvas.height;
         var k = window.devicePixelRatio;
@@ -13,7 +13,7 @@ function pixelRatioFix(canvas) {
         // finally set the scale of the context
         ctx.scale(k, k);
     }
-}
+}*/
 
 function loadImages(sources, callback) {
     var assetDir = '../images/';
@@ -142,9 +142,13 @@ var AssembleredImage = '' + folder + '/' + imgName;
 if( (!!AssembleredImage) && (AssembleredImage!= "/") ){
     sources[imageSource] =  ''+ folder + '/' + imgName;
     localStorage.setItem(''+environment, JSON.stringify(sources));
+    var completedAnimals = JSON.parse(localStorage.getItem("completedAnimals"));
+    completedAnimals[environment + "Completed"]++;
+    localStorage.setItem('completedAnimals', JSON.stringify(completedAnimals) );
 }
 
 var screenWidth = $(window).width();
 var screenHeight = $(window).height();
 
+if( JSON.parse(localStorage.getItem(environment + )) == )
 loadImages(sources, initStage);

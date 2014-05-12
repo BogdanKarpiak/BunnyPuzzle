@@ -24,6 +24,7 @@
                 background_jungles: "backgrounds/jungles2.jpg"
             },
 
+
             seaAnimalSourses = {
                 "dolphin/coloredImage_dolphin_small.png":"dolphin/coloredImage_dolphin_small.png",
                 "turtle/coloredImage_turtle_small.png" :"turtle/coloredImage_turtle_small.png",
@@ -151,6 +152,14 @@
         localStorage.setItem("seaAnimalSources", JSON.stringify(seaAnimalSourses));
         localStorage.setItem("junglesAnimalSources", JSON.stringify(junglesAnimalSources));
         localStorage.setItem("beachAnimalSourses", JSON.stringify(beachAnimalSourses));
+        localStorage.setItem("completedAnimals", JSON.stringify({
+            seaCompleted: 0,
+            seaNumberAll: Object.keys(seaAnimalSourses).length,
+            junglesCompleted: 0,
+            junglesNumberAll: Object.keys(junglesAnimalSources).length,
+            beachCompleted: 0,
+            beachNumberAll: Object.keys(beachAnimalSourses).length
+        }));
 
 
 
